@@ -1,5 +1,5 @@
 /*
-ExercÌcio 7
+Exerc√≠cio 7
 DELETE
 */
 
@@ -19,7 +19,7 @@ WHERE
 	status = 'FAILED';
 
 
--- 33. Remover pedidos CANCELLED (se n„o houver pagamentos confirmados).
+-- 33. Remover pedidos CANCELLED (se n√£o houver pagamentos confirmados).
 SELECT -- Confirmar antes de eliminar
 	* 
 FROM orders
