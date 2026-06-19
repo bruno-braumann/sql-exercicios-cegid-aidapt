@@ -1,9 +1,9 @@
 /*
-Exerc�cio 4
+Exercício 4
 GROUP BY / HAVING
 */
 
--- 13. Pre�o m�dio por categoria
+-- 13. Preço médio por categoria
 SELECT
 	category AS 'Categoria',
 	AVG (price) AS 'Preco_Medio_Categoria'
