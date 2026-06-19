@@ -1,5 +1,5 @@
 /*
-ExercÌcio 5
+Exerc√≠cio 5
 JOINS
 */
 
@@ -26,7 +26,7 @@ FROM
 
 -- 22. Total do pedido com nome do cliente
 SELECT
-	O.order_id, -- Se n„o colocar, obtenho o total de itens pedidos por cliente e n„o por pedido
+	O.order_id, -- Se n√£o colocar, obtenho o total de itens pedidos por cliente e n√£o por pedido
 	C.name AS 'Nome_Cliente',
 	SUM (OI.quantity) AS 'Total_Itens_Pedido',
 	SUM (OI.quantity * OI.unit_price) AS 'Valor_Total'
@@ -36,7 +36,7 @@ FROM orders O
 	INNER JOIN order_items OI ON O.order_id = OI.order_id
 
 GROUP BY
-	O.order_id, -- N„o colocar se n„o usar em SELECT
+	O.order_id, -- n√£o colocar se n√£o usar em SELECT
 	C.name
 
 ORDER BY
@@ -77,7 +77,7 @@ ORDER BY
 	O.order_id;
 
 
--- 25. Clientes que N√O possuem pedidos (anti join)
+-- 25. Clientes que n√£o possuem pedidos (anti join)
 SELECT
 	C.name AS 'Nome_Cliente'
 
@@ -87,7 +87,7 @@ FROM customers C
 WHERE
 	O.order_id IS NULL;
 
--- Para verificar se h· clientes sem pedidos. Se >= 1 os clientes j· fizeram pedidos
+-- Para verificar se h√° clientes sem pedidos. Se >= 1 os clientes j√° fizeram pedidos
 SELECT 
 	customer_id, 
 	COUNT(order_id) AS 'Total_Pedidos' 
