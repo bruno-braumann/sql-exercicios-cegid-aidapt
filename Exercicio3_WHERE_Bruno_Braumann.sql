@@ -3,7 +3,7 @@ Exercicio 3
 WHERE
 */
 
--- 6. Produtos com pre�o maior que 100 
+-- 6. Produtos com preço maior que 100 
 SELECT
 	name AS Nome_Produto,
 	price AS Preco
@@ -65,7 +65,7 @@ FROM
 WHERE
 	status = 'CANCELLED';
 
--- 9. Pedidos dos �ltimos 30 dias
+-- 9. Pedidos dos últimos 30 dias
 SELECT
 	order_id,
 	order_date AS Data_Pedido
@@ -76,7 +76,7 @@ FROM
 Where
 	order_date >= DATEADD (DAY, -30, GETDATE());
 
--- (Opcional) 9. Pedidos dos �ltimos 30 dias - com nome do cliente, produtos e quantidade por produto
+-- (Opcional) 9. Pedidos dos últimos 30 dias - com nome do cliente, produtos e quantidade por produto
 SELECT
 	C.name AS Nome_Cliente,
 	O.order_id,
@@ -105,7 +105,7 @@ WHERE
 	category = 'Accessories'
 	OR category = 'Hardware';
 
--- 11. Produtos com nome contendo �Course�
+-- 11. Produtos com nome contendo "Course"
 SELECT
 	name AS Nome_Produto
 
@@ -115,7 +115,7 @@ FROM
 WHERE
 	name LIKE '%Course%';
 
--- 12. Clientes com email terminando em �.com�
+-- 12. Clientes com email terminando em ".com"
 SELECT
 	name AS Nome_Cliente,
 	email AS Email_Cliente
@@ -125,4 +125,3 @@ FROM
 
 WHERE
 	email LIKE '%.com';
-
