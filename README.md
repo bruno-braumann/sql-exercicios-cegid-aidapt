@@ -154,5 +154,3 @@ Create the following tables:
 ---
 
 *AiDAPT Course — Cegid Academy | Module: Databases SQL*
-
-*Curso AiDAPT — Módulo: Bases de Dados SQL*
