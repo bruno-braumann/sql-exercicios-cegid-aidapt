@@ -60,7 +60,7 @@ INSERT INTO customers
 		('Gabriela Nunes','gabriela.nunes@email.com', 'Berlin'),
 		('Hugo Mendes',   'hugo.mendes@email.com',    'Lisboa');
 
--- Verificar a introduÁ„o dos dados customers
+-- Verificar a introdu√ß√£o dos dados customers
 SELECT *
 FROM customers
 
@@ -80,7 +80,7 @@ INSERT INTO products
 		('Monitor 24"',             'Hardware', 120.00, 1),
 		('Fabric Workshop',         'Courses', 299.90, 1);
 
--- Verificar a introduÁ„o dos dados products
+-- Verificar a introdu√ß√£o dos dados products
 SELECT *
 FROM products
 
@@ -102,7 +102,7 @@ INSERT INTO orders
 		(3, DATEADD(DAY,-8,  Getdate()), 'NEW'),
 		(4, DATEADD(DAY,-25, Getdate()), 'CANCELLED');
 
--- Verificar a introduÁ„o dos dados orders
+-- Verificar a introdu√ß√£o dos dados orders
 SELECT *
 FROM orders
 
@@ -132,7 +132,7 @@ INSERT INTO order_items
 		(11, 2, 2, 149.90),
 		(12, 4, 1, 49.90);
 
--- Verificar a introduÁ„o dos dados order_items
+-- Verificar a introdu√ß√£o dos dados order_items
 SELECT *
 FROM order_items
 
@@ -149,6 +149,9 @@ INSERT INTO payments
 		(9, DATEADD(DAY,-59, Getdate()), 240.00, 'PIX', 'CONFIRMED'),
 		(10, DATEADD(DAY,-11, Getdate()), 149.80, 'CARD', 'FAILED');
 
--- Verificar a introduÁ„o dos dados payments
+-- Verificar a introdu√ß√£o dos dados payments
+SELECT *
+FROM payments
+-- Verificar a introdu√ß√£o dos dados payments
 SELECT *
 FROM payments
