@@ -1,48 +1,48 @@
-# 🗄️ SQL Server — Exercícios Práticos
+# SQL Server — Practical Exercises
 
-Repositório com os exercícios práticos do módulo de **Bases de Dados SQL** do curso AiDAPT.  
-Todos os scripts foram desenvolvidos e testados em **SQL Server (T-SQL)**.
+A collection of SQL exercises from the **Databases SQL** module of the AiDAPT course at Cegid Academy.
+All scripts were developed and tested in **SQL Server (T-SQL)**.
 
 ---
 
-## 📁 Estrutura do Repositório
+## Repository Structure
 
-| Ficheiro | Tema | Conteúdo |
+| File | Topic | Content |
 |---|---|---|
-| `Exercicio1_Bruno_Braumann.sql` | Setup | CREATE TABLE + INSERT (dados de teste) |
-| `Exercicio2_SELECT_Bruno_Braumann.sql` | SELECT | Consultas básicas, ORDER BY, DISTINCT, TOP |
-| `Exercicio3_WHERE_Bruno_Braumann.sql` | WHERE | Filtros, LIKE, OR, DATEADD |
-| `Exercicio4_GROUPBY_HAVING_Bruno_Braumann.sql` | GROUP BY / HAVING | Agregações, SUM, AVG, COUNT, HAVING |
+| `Exercicio1_Bruno_Braumann.sql` | Setup | CREATE TABLE + INSERT (test data) |
+| `Exercicio2_SELECT_Bruno_Braumann.sql` | SELECT | Basic queries, ORDER BY, DISTINCT, TOP |
+| `Exercicio3_WHERE_Bruno_Braumann.sql` | WHERE | Filters, LIKE, OR, DATEADD |
+| `Exercicio4_GROUPBY_HAVING_Bruno_Braumann.sql` | GROUP BY / HAVING | Aggregations, SUM, AVG, COUNT, HAVING |
 | `Exercicio5_JOINS_Bruno_Braumann.sql` | JOINs | INNER JOIN, LEFT JOIN, Anti Join |
-| `Exercicio6_UPDATE_Bruno_Braumann.sql` | UPDATE | Atualizações com e sem condições |
-| `Exercicio7_DELETE_Bruno_Braumann.sql` | DELETE | Remoção de registos com filtros e subqueries |
+| `Exercicio6_UPDATE_Bruno_Braumann.sql` | UPDATE | Conditional and unconditional updates |
+| `Exercicio7_DELETE_Bruno_Braumann.sql` | DELETE | Record removal with filters and subqueries |
 
 ---
 
-## 🗂️ Modelo de Dados
+## Data Model
 
-O projeto usa uma base de dados de e-commerce fictícia com 5 tabelas:
+The project uses a fictional e-commerce database with 5 tables:
 
 ```
 customers ──< orders ──< order_items >── products
                  └──< payments
 ```
 
-| Tabela | Descrição |
+| Table | Description |
 |---|---|
-| `customers` | Clientes registados |
-| `products` | Catálogo de produtos |
-| `orders` | Encomendas realizadas |
-| `order_items` | Itens de cada encomenda |
-| `payments` | Pagamentos associados a encomendas |
+| `customers` | Registered customers |
+| `products` | Product catalogue |
+| `orders` | Placed orders |
+| `order_items` | Line items per order |
+| `payments` | Payments associated with orders |
 
 ---
 
-## 📝 Exercícios
+## Exercises
 
-### Exercício 1 — Desafio Inicial
+### Exercise 1 — Initial Setup
 
-Crie as seguintes tabelas:
+Create the following tables:
 
 - `customers(customer_id, name, email, city, created_at)`
 - `products(product_id, name, category, price, active)`
@@ -50,107 +50,109 @@ Crie as seguintes tabelas:
 - `order_items(order_id, product_id, quantity, unit_price)`
 - `payments(payment_id, order_id, payment_date, amount, method, status)`
 
-**Relacionamentos / restrições:**
+**Relationships:**
 - `orders.customer_id` → `customers.customer_id`
 - `order_items.order_id` → `orders.order_id`
 - `order_items.product_id` → `products.product_id`
 - `payments.order_id` → `orders.order_id`
 
-**INSERT:** Popular todas as tabelas com os dados de teste fornecidos.
+**INSERT:** Populate all tables with the provided test data.
 
 ---
 
-### Exercício 2 — SELECT: A Jornada Começa
+### Exercise 2 — SELECT
 
-1. Liste todos os clientes.
-2. Liste FullName, Email e City.
-3. Liste os produtos ordenados por Price descendente.
-4. Liste as categorias distintas.
-5. Liste os 5 produtos mais caros (TOP 5).
-
----
-
-### Exercício 3 — WHERE?
-
-6. Produtos com preço maior que 100.
-7. Clientes da cidade "Porto".
-8. Pedidos com status CANCELLED.
-9. Pedidos dos últimos 30 dias (usar `DATEADD`).
-10. Produtos das categorias "Accessories" ou "Hardware".
-11. Produtos com nome contendo "Course".
-12. Clientes com email terminando em ".com".
+1. List all customers.
+2. List FullName, Email and City.
+3. List products ordered by Price descending.
+4. List distinct categories.
+5. List the 5 most expensive products (TOP 5).
 
 ---
 
-### Exercício 4 — GROUP BY e HAVING
+### Exercise 3 — WHERE
 
-13. Preço médio por categoria.
-14. Quantidade de produtos por categoria.
-15. Quantidade de pedidos por status.
-16. Total confirmado recebido (soma dos pagamentos confirmados).
-17. Total pago por cliente.
-18. Clientes com total gasto superior a 300 (usar `HAVING`).
-19. Total de cada pedido (somar itens).
-
----
-
-### Exercício 5 — JOINs
-
-20. `INNER JOIN`: pedidos com nome do cliente.
-21. `INNER JOIN`: itens com nome do produto.
-22. Total do pedido com nome do cliente.
-23. Pagamentos com nome do cliente e status do pedido.
-24. `LEFT JOIN`: clientes e os seus pedidos.
-25. Clientes sem pedidos (anti join).
-26. Pedidos sem pagamento confirmado.
-27. Pedidos com mais de 2 itens.
+1. Products with price greater than 100.
+2. Customers from the city "Porto".
+3. Orders with status CANCELLED.
+4. Orders from the last 30 days (using `DATEADD`).
+5. Products in the "Accessories" or "Hardware" categories.
+6. Products with a name containing "Course".
+7. Customers with an email ending in ".com".
 
 ---
 
-### Exercício 6 — UPDATE
+### Exercise 4 — GROUP BY and HAVING
 
-28. Aumente em 10% o preço dos produtos da categoria "Accessories".
-29. Marque `Active = 0` para produtos com preço inferior a 5.
-30. Alterar o status de pedidos NEW para CANCELLED se tiverem mais de 7 dias.
-31. Corrigir o email de um cliente específico.
-
----
-
-### Exercício 7 — DELETE
-
-32. Remover pagamentos FAILED.
-33. Remover pedidos CANCELLED (apenas se não tiverem pagamentos confirmados).
-34. Remover produtos inativos que nunca foram vendidos.
-35. Remover clientes sem pedidos.
+1. Average price per category.
+2. Number of products per category.
+3. Number of orders per status.
+4. Total confirmed revenue (sum of confirmed payments).
+5. Total amount paid per customer.
+6. Customers with total spend above 300 (using `HAVING`).
+7. Total value of each order (sum of line items).
 
 ---
 
-## 🚀 Como Usar
+### Exercise 5 — JOINs
 
-1. Executar primeiro o **Exercício 1** para criar as tabelas e inserir os dados.
-2. Correr os restantes exercícios pela ordem numérica.
-3. Os scripts do Exercício 6 (UPDATE) e 7 (DELETE) **modificam ou eliminam dados** — executar com atenção.
-
-> ⚠️ Os scripts foram escritos em **T-SQL** (SQL Server). Funções como `GETDATE()`, `DATEADD()`, `IDENTITY` e `TOP` são específicas deste dialeto.
+1. `INNER JOIN`: orders with customer name.
+2. `INNER JOIN`: line items with product name.
+3. Order total with customer name.
+4. Payments with customer name and order status.
+5. `LEFT JOIN`: customers and their orders.
+6. Customers with no orders (anti join).
+7. Orders with no confirmed payment.
+8. Orders with more than 2 items.
 
 ---
 
-## 📚 Temas Abordados
+### Exercise 6 — UPDATE
+
+1. Increase the price of "Accessories" products by 10%.
+2. Set `Active = 0` for products with price below 5.
+3. Change the status of NEW orders to CANCELLED if they are more than 7 days old.
+4. Correct the email address of a specific customer.
+
+---
+
+### Exercise 7 — DELETE
+
+1. Remove FAILED payments.
+2. Remove CANCELLED orders (only if they have no confirmed payments).
+3. Remove inactive products that were never sold.
+4. Remove customers with no orders.
+
+---
+
+## How to Use
+
+1. Run **Exercise 1** first to create the tables and insert the test data.
+2. Run the remaining exercises in numerical order.
+3. Exercise 6 (UPDATE) and Exercise 7 (DELETE) **modify or delete data** — run with care.
+
+> ⚠️ Scripts are written in **T-SQL** (SQL Server). Functions such as `GETDATE()`, `DATEADD()`, `IDENTITY` and `TOP` are specific to this dialect.
+
+---
+
+## Topics Covered
 
 - `CREATE TABLE`, `INSERT INTO`
 - `SELECT`, `DISTINCT`, `TOP`, `ORDER BY`
 - `WHERE`, `LIKE`, `BETWEEN`, `IN`, `AND`, `OR`
 - `GROUP BY`, `HAVING`, `SUM`, `AVG`, `COUNT`
 - `INNER JOIN`, `LEFT JOIN`, subqueries
-- `UPDATE` com condições
-- `DELETE` com filtros e subqueries
+- `UPDATE` with conditions
+- `DELETE` with filters and subqueries
 
 ---
 
-## 🛠️ Tecnologias
+## Technologies
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-T--SQL-CC2927?style=flat&logo=microsoftsqlserver&logoColor=white)
 
 ---
+
+*AiDAPT Course — Cegid Academy | Module: Databases SQL*
 
 *Curso AiDAPT — Módulo: Bases de Dados SQL*
